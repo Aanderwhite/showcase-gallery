@@ -48,7 +48,7 @@ return (
   />
     )}
     <footer className="py-10 text-center text-sm text-slate-400">
-        Made by [John Matthew Olano] . [INF233]
+        Made by [April Mark Sarmiento] . [INF233]
     </footer>
   </div>
   );
