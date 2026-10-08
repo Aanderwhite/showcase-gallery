@@ -45,3 +45,11 @@ Client: `npm run build` and `npm run lint`.
 Server: `npm run test:api`. To test Render, set `API_URL` to the real Render URL before running. This creates and removes one disposable test product and records six results under `submission/evidence/`. These results supplement the required Thunder Client screenshots.
 
 Submission instructions are in `submission/SUBMISSION-CHECKLIST.md`.
+
+## Sample photographs
+
+The six initial products use Unsplash photographs downloaded by `server/scripts/seed-products.js` and stored as image data in Atlas. The seed script adds missing named samples without deleting existing products. Product descriptions are examples for this activity.
+
+## Thunder Client collection
+
+Import `submission/showcase-api.postman_collection.json`, set `base_url` to your actual Render origin, and copy the first response's `_id` into `product_id`. Run the six requests in order. See [Thunder Client's import documentation](https://docs.thunderclient.com/features/import).

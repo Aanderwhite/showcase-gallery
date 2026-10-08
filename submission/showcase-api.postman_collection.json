@@ -1,0 +1,109 @@
+{
+  "info": {
+    "name": "ShowCase - Six Required API Tests",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Import into Thunder Client. Set base_url to the actual Render origin. After request 01, copy response _id into product_id. Run requests in order."
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:5000"
+    },
+    {
+      "key": "product_id",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "01 Create product - expect 201",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/products",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Test Product\",\n  \"price\": 100,\n  \"description\": \"Created from Thunder Client.\",\n  \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/lZkAAAAASUVORK5CYII=\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "02 List products - expect 200",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/products"
+      }
+    },
+    {
+      "name": "03 Get one product - expect 200",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/products/{{product_id}}"
+      }
+    },
+    {
+      "name": "04 Update price - expect 200",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/products/{{product_id}}",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"price\": 199\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "05 Delete product - expect 200",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "{{base_url}}/api/products/{{product_id}}"
+      }
+    },
+    {
+      "name": "06 Missing image - expect 400",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/products",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"x\",\n  \"price\": 1\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    }
+  ]
+}
