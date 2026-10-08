@@ -56,11 +56,11 @@ def cover(c, activity):
     c.drawString(42, 42, 'NU MOA - School of Information Technology')
     c.showPage()
 
-def screenshot_page(c, title, filename):
+def screenshot_page(c, title, filename, activity=2):
     source = ROOT / 'evidence' / filename
     if not source.exists():
         return
-    page_header(c, 'Activity 2 Evidence', title)
+    page_header(c, f'Activity {activity} Evidence', title)
     image = ImageReader(str(source))
     iw, ih = image.getSize()
     scale = min((W-60)/iw, (H-190)/ih)
@@ -83,5 +83,16 @@ c.save()
 c = canvas.Canvas(str(ROOT / 'Activity-3-Cover-Sarmiento.pdf'), pagesize=A4)
 c.setTitle('Activity 3 Cover - April Mark Sarmiento - INF233')
 cover(c, 3)
+for title, filename in [
+    ('Public GitHub repository', 'activity3-github.jpg'),
+    ('Render API - Live', 'activity3-render-live.jpg'),
+    ('Thunder Client 1 - POST 201', 'activity3-thunder-01-create.png'),
+    ('Thunder Client 2 - GET list 200', 'activity3-thunder-02-list.png'),
+    ('Thunder Client 3 - GET product 200', 'activity3-thunder-03-detail.png'),
+    ('Thunder Client 4 - PUT price 200', 'activity3-thunder-04-update.png'),
+    ('Thunder Client 5 - DELETE 200', 'activity3-thunder-05-delete.png'),
+    ('Thunder Client 6 - Validation 400', 'activity3-thunder-06-validation.png'),
+]:
+    screenshot_page(c, title, filename, activity=3)
 c.save()
 print('Created Activity 2 document and Activity 3 cover.')

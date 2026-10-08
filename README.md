@@ -52,4 +52,4 @@ The six initial products use Unsplash photographs downloaded by `server/scripts/
 
 ## Thunder Client collection
 
-Import `submission/showcase-api.postman_collection.json`, set `base_url` to your actual Render origin, and copy the first response's `_id` into `product_id`. Run the six requests in order. See [Thunder Client's import documentation](https://docs.thunderclient.com/features/import).
+The request collection is in `submission/showcase-api.postman_collection.json`; it works with clients that support Postman imports. Current Thunder Client Free can run the six requests individually; follow `submission/SUBMISSION-CHECKLIST.md`. Use the real Render origin and copy the first response's `_id` for the detail, update, and delete requests.
