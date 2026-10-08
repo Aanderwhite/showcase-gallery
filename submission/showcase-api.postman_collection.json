@@ -7,7 +7,7 @@
   "variable": [
     {
       "key": "base_url",
-      "value": "http://localhost:5000"
+      "value": "https://showcase-api-sarmiento.onrender.com"
     },
     {
       "key": "product_id",
