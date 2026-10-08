@@ -8,7 +8,7 @@ A responsive gallery with image uploads, MongoDB Atlas persistence, and add/edit
 
 - GitHub: https://github.com/Aanderwhite/showcase-gallery
 - Render API: https://showcase-api-sarmiento.onrender.com
-- Vercel website: deployment pending
+- Vercel website: https://showcase-sarmiento.vercel.app
 
 ## Run locally
 

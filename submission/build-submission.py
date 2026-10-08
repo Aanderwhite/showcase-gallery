@@ -51,6 +51,10 @@ def cover(c, activity):
             c.setFillColor(colors.HexColor('#b45309'))
             c.setFont('Helvetica-Bold', 11)
             c.drawString(42, 115, 'DRAFT: add verified live URLs before submitting Activity 3.')
+        elif not (ROOT / 'evidence/activity3-physical-phone.jpg').exists():
+            c.setFillColor(colors.HexColor('#b45309'))
+            c.setFont('Helvetica-Bold', 10)
+            c.drawString(42, 115, 'Still required: a real photo of this website on a physical phone.')
     c.setFillColor(colors.HexColor('#64748b'))
     c.setFont('Helvetica', 10)
     c.drawString(42, 42, 'NU MOA - School of Information Technology')
@@ -80,8 +84,8 @@ for title, filename in [
     screenshot_page(c, title, filename)
 c.save()
 
-c = canvas.Canvas(str(ROOT / 'Activity-3-Cover-Sarmiento.pdf'), pagesize=A4)
-c.setTitle('Activity 3 Cover - April Mark Sarmiento - INF233')
+c = canvas.Canvas(str(ROOT / 'Activity-3-Sarmiento.pdf'), pagesize=A4)
+c.setTitle('Activity 3 - April Mark Sarmiento - INF233')
 cover(c, 3)
 for title, filename in [
     ('Public GitHub repository', 'activity3-github.jpg'),
@@ -92,6 +96,10 @@ for title, filename in [
     ('Thunder Client 4 - PUT price 200', 'activity3-thunder-04-update.png'),
     ('Thunder Client 5 - DELETE 200', 'activity3-thunder-05-delete.png'),
     ('Thunder Client 6 - Validation 400', 'activity3-thunder-06-validation.png'),
+    ('Vercel production deployment - Ready', 'activity3-vercel-ready.jpg'),
+    ('Live website - six products and Atlas images', 'activity3-live-gallery.jpg'),
+    ('Mobile layout test - browser emulation only', 'activity3-mobile-layout.jpg'),
+    ('Physical phone photo supplied by student', 'activity3-physical-phone.jpg'),
 ]:
     screenshot_page(c, title, filename, activity=3)
 c.save()

@@ -16,12 +16,13 @@ with ZipFile(out / 'ShowCase-Sarmiento-Source.zip', 'w', ZIP_DEFLATED) as z:
         if (f.name.startswith('.env') and f.name != '.env.example') or f.suffix in {'.pdf', '.log'}:
             continue
         z.write(f, str(rel))
-for activity, pdf, label in [(2, 'Activity-2-Sarmiento.pdf', 'Submission'), (3, 'Activity-3-Cover-Sarmiento.pdf', 'DRAFT')]:
+for activity, pdf, label in [(2, 'Activity-2-Sarmiento.pdf', 'Submission'), (3, 'Activity-3-Sarmiento.pdf', 'Submission')]:
     with ZipFile(out / f'Activity-{activity}-Sarmiento-{label}.zip', 'w', ZIP_DEFLATED) as z:
         z.write(repo / 'submission' / pdf, pdf)
         for f in (repo / 'submission/evidence').glob(f'activity{activity}-*'):
             z.write(f, 'evidence/' + f.name)
         z.write(repo / 'submission/SUBMISSION-CHECKLIST.md', 'SUBMISSION-CHECKLIST.md')
+        z.write(repo / 'submission/READ-BEFORE-SUBMITTING.md', 'READ-BEFORE-SUBMITTING.md')
     doc = pdfium.PdfDocument(repo / 'submission' / pdf)
     thumbs = []
     for i in range(len(doc)):
