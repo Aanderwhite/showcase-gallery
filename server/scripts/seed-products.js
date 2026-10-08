@@ -25,7 +25,12 @@ try {
   }
   for (let i = 0; i < prepared.length; i++) {
     const product = prepared[i];
-    if (await Product.exists({ name: product.name })) { console.log('Already exists: ' + product.name); continue; }
+    const existing = await Product.findOne({ name: product.name });
+    if (existing) {
+      if (replaceExisting) await Product.findByIdAndUpdate(existing._id, product, { runValidators: true });
+      console.log('Existing Nike product: ' + product.name);
+      continue;
+    }
     const original = replaceExisting ? await Product.findOne({ name: formerNames[i] }) : null;
     if (original) await Product.findByIdAndUpdate(original._id, product, { runValidators: true });
     else await Product.create(product);
