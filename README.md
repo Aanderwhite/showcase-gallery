@@ -48,7 +48,7 @@ Submission instructions are in `submission/SUBMISSION-CHECKLIST.md`.
 
 ## Sample photographs
 
-The six initial products use Unsplash photographs downloaded by `server/scripts/seed-products.js` and stored as image data in Atlas. The seed script adds missing named samples without deleting existing products. Product descriptions are examples for this activity.
+The six products feature Nike shoes and official Nike pictures found through Google Images. Source pages and image URLs are recorded in `server/scripts/nike-products.json`. The seed script downloads and stores image bytes in Atlas. Prices and descriptions are sample activity content; check Nike for current purchase details. Run `node scripts/seed-products.js` from `server` to add missing samples. The `--replace-samples` option replaces the former six demonstration products after saving a local backup.
 
 ## Thunder Client collection
 

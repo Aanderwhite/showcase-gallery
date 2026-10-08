@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Nike Dunk Low",
+    "price": 6995,
+    "category": "Lifestyle",
+    "source": "https://www.nike.com/ph/t/dunk-low-womens-shoes-ya7DFWGS",
+    "image": "https://static.nike.com/a/images/t_web_pdp_936_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/cf6ed36f-9a09-428d-8d18-01df00cfef70/WMNS+NIKE+DUNK+LOW.png",
+    "description": "Black and sail low-top sneakers with metallic gold accents. A versatile Nike style for casual outfits."
+  },
+  {
+    "name": "Nike Air Max Plus",
+    "price": 7207,
+    "category": "Lifestyle",
+    "image": "https://static.nike.com/a/images/t_web_pdp_936_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/3edcad00-0300-4098-923f-c092f5cdbfe7/NIKE+AIR+MAX+PLUS.png",
+    "source": "https://www.nike.com/ph/t/air-max-plus-mens-shoes-aHR40HUG",
+    "description": "Black sneakers with pink and white accents and a distinctive Air Max Plus silhouette."
+  },
+  {
+    "name": "Nike Air Max 90",
+    "price": 8095,
+    "category": "Lifestyle",
+    "image": "https://static.nike.com/a/images/t_web_pdp_936_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/295e6cfd-5259-4c3a-8446-d257afa457f8/NIKE+AIR+MAX+90.png",
+    "source": "https://www.nike.com/ph/t/air-max-90-mens-shoes-2p1e5ZDw",
+    "description": "Black and grey Nike sneakers with the recognizable Air Max 90 profile."
+  },
+  {
+    "name": "Nike Air Max 90 G",
+    "price": 9695,
+    "category": "Golf",
+    "image": "https://static.nike.com/a/images/t_web_pdp_936_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/0dafbb82-8812-4d64-8540-67bc2603766d/AIR+MAX+90G+U26.png",
+    "source": "https://www.nike.com/ph/t/air-max-90-g-golf-shoes-FmGOavyd",
+    "description": "Sea Glass and green golf shoes inspired by the Air Max 90 design."
+  },
+  {
+    "name": "Nike Air Force 1 '07",
+    "price": 6195,
+    "category": "Lifestyle",
+    "image": "https://static.nike.com/a/images/t_web_pdp_936_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/3089b1cd-f602-4ee7-9867-dac6500ccd7a/AIR+FORCE+1+%2707.png",
+    "source": "https://www.nike.com/ph/t/air-force-1-07-mens-shoes-0XGfD7/FJ4146-123",
+    "description": "White Nike Air Force 1 sneakers with Court Blue accents and a classic low-top shape."
+  },
+  {
+    "name": "Nike Shox TL SE",
+    "price": 9695,
+    "category": "Lifestyle",
+    "image": "https://static.nike.com/a/images/t_web_pdp_936_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/9510cb1a-a2be-4964-9158-24f14232a0cb/NIKE+SHOX+TL+SE.png",
+    "source": "https://www.nike.com/ph/t/shox-tl-se-mens-shoes-CI5NaJKl",
+    "description": "Nike Shox sneakers featuring a distinctive column-style sole and a sporty design."
+  }
+]
