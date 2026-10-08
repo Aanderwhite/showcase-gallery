@@ -4,3 +4,9 @@
 @theme {
   --font-sans: "Poppins", sans-serif;
 }
+
+button, label:has(input[type="file"]) { cursor: pointer; }
+button:focus-visible, label:focus-within { outline: 3px solid #4f46e5; outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+}

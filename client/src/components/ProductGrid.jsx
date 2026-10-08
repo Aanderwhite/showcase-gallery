@@ -8,7 +8,7 @@ function ProductGrid({ products, showActions = false, onEdit, onDelete }) {
         );
     }
     return (
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(230px,1fr))] gap-6">
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(min(230px,100%),1fr))] gap-6">
             {products.map((product) => (
                 <ProductCard
                     key={product._id}

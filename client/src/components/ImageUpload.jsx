@@ -4,10 +4,11 @@ function ImageUpload({ image, onChange, onError}) {
     const handleFile = (e) => {
         const file = e.target.files[0];
         if (!file) return;
-        if (!file.type.startsWith("image/")) return onError("Please choose an Image File.");
+        if (!["image/jpeg", "image/png", "image/webp"].includes(file.type)) return onError("Please choose a JPG, PNG, or WebP image.");
         if (file.size >MAX_SIZE) return onError("Image is too large. Maximum size is 1MB.");
         const reader = new FileReader();
         reader.onload = () => onChange(reader.result);
+        reader.onerror = () => onError("Could not read this image. Please choose it again.");
         reader.readAsDataURL(file);
         onError("");
     };
@@ -23,7 +24,7 @@ function ImageUpload({ image, onChange, onError}) {
         ) : (
             <span>+ Click to Choose an image (max 1MB)</span>
             )}
-            <input type="file" accept="image/*" onChange={handleFile} hidden />
+            <input aria-label="Upload product image" className="sr-only" type="file" accept="image/jpeg,image/png,image/webp" onChange={handleFile} />
         </label>
     );
     }

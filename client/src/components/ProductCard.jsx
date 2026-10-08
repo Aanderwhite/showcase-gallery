@@ -4,6 +4,7 @@ function ProductCard({ product, showActions, onEdit, onDelete }) {
             className="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition duration-300 hover:-translate-y-1 hover:shadow-xl">
             <div className="relative aspect-4/3 overflow-hidden">
                 <img
+                    loading="lazy"
                     src={product.image}
                     alt={product.name}
                     className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
@@ -23,13 +24,13 @@ function ProductCard({ product, showActions, onEdit, onDelete }) {
                     <div className="mt-4 flex gap-2">
                         <button
                             onClick={() => onEdit(product)}
-                            className="flex-1 rounded-lg bg-slate-100 py-2 text-sm font-medium text-slate-700 hover:bg-slate-200"
+                            className="min-h-11 flex-1 rounded-lg bg-slate-100 py-2 text-sm font-medium text-slate-700 hover:bg-slate-200"
                         >
                             Edit
                         </button>
                         <button
                             onClick={() => onDelete(product._id)}
-                            className="flex-1 rounded-lg bg-red-500 py-2 text-sm font-medium text-white hover:bg-red-600"
+                            className="min-h-11 flex-1 rounded-lg bg-red-600 py-2 text-sm font-medium text-white hover:bg-red-700"
                         >
                             Delete
                         </button>

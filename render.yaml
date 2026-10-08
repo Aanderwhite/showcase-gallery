@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: showcase-api-sarmiento
+    runtime: node
+    region: singapore
+    plan: free
+    rootDir: server
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: MONGO_URI
+        sync: false

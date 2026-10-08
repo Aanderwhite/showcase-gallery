@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ImageUpload from "./ImageUpload";
-const emptyForm = { name: "", price: "", description: "", image: "" };
+const emptyForm = { name: "", price: "", description: "", image: "", category: "General" };
 const inputClass =
     "w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100";
 function ProductForm({ editingProduct, onSubmit, onCancel }) {
@@ -13,10 +13,12 @@ function ProductForm({ editingProduct, onSubmit, onCancel }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formElement = e.target;
-        const { name, price, description, image } = form;
+        const { name, price, description, image, category } = form;
         if (!name.trim() || price === "" || !image) {
             return setError("Name, price, and image are required.");
         }
+        if (!Number.isFinite(Number(price)) || Number(price) < 0) return setError("Price must be zero or more.");
+        if (!description.trim()) return setError("Please add a complete product description.");
         setSaving(true);
         try {
             await onSubmit({
@@ -24,12 +26,13 @@ function ProductForm({ editingProduct, onSubmit, onCancel }) {
                 price: Number(price),
                 description,
                 image,
+                category: category?.trim() || "General",
             });
             setForm(emptyForm);
             setError("");
             formElement.reset();
-        } catch {
-            setError("Could not save the product. Please try again.");
+        } catch (err) {
+            setError(err.message || "Could not save the product. Please try again.");
         } finally {
             setSaving(false);
         }
@@ -49,14 +52,21 @@ function ProductForm({ editingProduct, onSubmit, onCancel }) {
                 }
                 onError={setError}
             />
+            <label htmlFor="product-name" className="block text-sm font-medium">Product name</label>
             <input
+                id="product-name"
+                required
                 name="name"
                 placeholder="Product name"
                 className={inputClass}
                 value={form.name}
                 onChange={handleChange}
             />
+            <label htmlFor="product-price" className="block text-sm font-medium">Price (₱)</label>
             <input
+                id="product-price"
+                required
+                step="0.01"
                 name="price"
                 type="number"
                 min="0"
@@ -65,7 +75,12 @@ function ProductForm({ editingProduct, onSubmit, onCancel }) {
                 value={form.price}
                 onChange={handleChange}
             />
+            <label htmlFor="product-category" className="block text-sm font-medium">Category</label>
+            <input id="product-category" name="category" className={inputClass} value={form.category || "General"} onChange={handleChange} />
+            <label htmlFor="product-description" className="block text-sm font-medium">Description</label>
             <textarea
+                id="product-description"
+                required
                 name="description"
                 rows="3"
                 placeholder="Short description"
@@ -74,7 +89,7 @@ function ProductForm({ editingProduct, onSubmit, onCancel }) {
                 onChange={handleChange}
             />
             {error && (
-                <p className="rounded-xl bg-red-50 p-3 text-sm text-red-600">
+                <p role="alert" className="rounded-xl bg-red-50 p-3 text-sm text-red-600">
                     {error}
                 </p>
             )}
